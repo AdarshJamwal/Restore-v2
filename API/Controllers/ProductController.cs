@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")] // https://localhost:5001/api/product
+    [Route("api/[controller]")] 
     [ApiController]
     public class ProductController(StoreContext context) : ControllerBase
     {

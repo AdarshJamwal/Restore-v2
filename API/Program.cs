@@ -13,16 +13,24 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 });
 
 
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
+
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:3000");
+});
+
+
 
 app.MapControllers();
+
 
 DbInitializer.InitDb(app);
 
